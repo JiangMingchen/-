@@ -1,0 +1,162 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+
+entity CTRL_tb is
+end CTRL_tb;
+
+architecture modelsim of CTRL_tb is
+component CTRL0
+ PORT(
+ LD,ADD,SUB,AND1,OR1,MUL,HALT:IN STD_LOGIC;
+ CLK:IN STD_LOGIC;
+ T0,T1,T2,T3,T4,T5,T6,T7:IN STD_LOGIC;
+ AIM:OUT STD_LOGIC_VECTOR(3 DOWNTO 0):="ZZZZ";
+ IPC,IMAR,IDR,EDR,IA,EA,ISUM,ESUM,IIR:OUT STD_LOGIC
+ );
+end component;
+signal ld,add,sub,and1,or1,mul,halt,clk :std_logic:='0';
+signal t0,t1,t2,t3,t4,t5,t6,t7:std_logic:='0';
+signal aim:std_logic_vector(3 DOWNTO 0):="0000";
+signal ioc,imar,idr,edr,ia,ea,isum,esum,ipc,iir:std_logic:='0';
+begin
+U4 : CTRL0 port map(ld=>LD,add=>ADD,sub=>SUB,and1=>AND1,or1=>OR1,mul=>MUL,halt=>HALT,clk=>CLK,
+						  t0=>T0,t1=>T1,t2=>T2,t3=>T3,t4=>T4,t5=>T5,t6=>T6,t7=>T7,aim=>AIM,ipc=>IPC,imar=>IMAR,idr=>IDR,
+						  edr=>EDR,ia=>IA,ea=>EA,isum=>ISUM,esum=>ESUM,iir=>IIR);
+
+process
+	begin
+	t0<='1';
+	t1<='0';
+	t2<='0';
+	t3<='0';
+	t4<='0';
+	t5<='0';
+	t6<='0';
+	t7<='0';
+	wait for 25ns;
+	t0<='0';
+	t1<='1';
+	t2<='0';
+	t3<='0';
+	t4<='0';
+	t5<='0';
+	t6<='0';
+	t7<='0';
+	wait for 25ns;
+	t0<='0';
+	t1<='0';
+	t2<='1';
+	t3<='0';
+	t4<='0';
+	t5<='0';
+	t6<='0';
+	t7<='0';
+	wait for 25ns;
+	t0<='0';
+	t1<='0';
+	t2<='0';
+	t3<='1';
+	t4<='0';
+	t5<='0';
+	t6<='0';
+	t7<='0';
+	wait for 25ns;
+	t0<='0';
+	t1<='0';
+	t2<='0';
+	t3<='0';
+	t4<='1';
+	t5<='0';
+	t6<='0';
+	t7<='0';
+	wait for 25ns;
+	t0<='0';
+	t1<='0';
+	t2<='0';
+	t3<='0';
+	t4<='0';
+	t5<='1';
+	t6<='0';
+	t7<='0';
+	wait for 25ns;
+	t0<='0';
+	t1<='0';
+	t2<='0';
+	t3<='0';
+	t4<='0';
+	t5<='0';
+	t6<='1';
+	t7<='0';
+	wait for 25ns;
+	t0<='0';
+	t1<='0';
+	t2<='0';
+	t3<='0';
+	t4<='0';
+	t5<='0';
+	t6<='0';
+	t7<='1';
+	wait for 25ns;
+end process;
+process
+	begin
+	LD<='1';
+	ADD<='0';
+	SUB<='0';
+	AND1<='0';
+	OR1<='0';
+	MUL<='0';
+	HALT<='0';
+	wait for 200ns;
+	LD<='0';
+	ADD<='1';
+	SUB<='0';
+	AND1<='0';
+	OR1<='0';
+	MUL<='0';
+	HALT<='0';
+	wait for 200ns;
+	LD<='0';
+	ADD<='0';
+	SUB<='1';
+	AND1<='0';
+	OR1<='0';
+	MUL<='0';
+	HALT<='0';
+	wait for 200ns;
+	LD<='0';
+	ADD<='0';
+	SUB<='0';
+	AND1<='1';
+	OR1<='0';
+	MUL<='0';
+	HALT<='0';
+	wait for 200ns;
+	LD<='0';
+	ADD<='0';
+	SUB<='0';
+	AND1<='0';
+	OR1<='1';
+	MUL<='0';
+	HALT<='0';
+	wait for 200ns;
+	LD<='0';
+	ADD<='0';
+	SUB<='0';
+	AND1<='0';
+	OR1<='0';
+	MUL<='1';
+	HALT<='0';
+	wait for 200ns;
+	LD<='0';
+	ADD<='0';
+	SUB<='0';
+	AND1<='0';
+	OR1<='0';
+	MUL<='0';
+	HALT<='1';
+	wait for 200ns;
+end process;
+end modelsim;
