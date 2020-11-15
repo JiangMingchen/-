@@ -1,4 +1,4 @@
-# -
+# 16位模型机设计
 数字逻辑与数字系统课程设计，由八位模型机设计改进而来    
 From 东北大学计算机学院(School of Computer Science and Engineering,NEU)
 
